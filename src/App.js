@@ -94,6 +94,8 @@ const List = ({listname}) => {
   );
 };
 
+
+// with out nested destructure we use them mas props method liek props.item ,,,,,
 const Item = ({item}) => {
   return (
     <li>
@@ -108,5 +110,23 @@ const Item = ({item}) => {
     </li>
   );
 };
+
+// const Item = ({
+//   item:{title,author,points,Url}   // desturing nested one
+
+// }) => {
+//   return (
+//     <li>
+//       <h4>{title}</h4>
+//       <p>
+//         author: {author} comments :<span>{points}</span>
+//       </p>
+//       <p>
+//         tutorial link : <a href={Url}>{Url}</a>
+//       </p>
+//       <hr />
+//     </li>
+//   );
+// };
 
 export default App;
