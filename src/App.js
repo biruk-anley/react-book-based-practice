@@ -45,7 +45,7 @@ const App = () => {
       objectID: 4,
     },
   ];
-  const [searchTerm, setSearchTerm] = React.useState("");
+  const [searchTerm, setSearchTerm] = React.useState("redux");
  
   //  A
   const handleSearch = (event) => {
@@ -60,7 +60,7 @@ const App = () => {
     <div className="holder">
       <h1>Practising on List using map function</h1>
       {/* //B  handle search emibal function alen.. on search ... handle searchin pass yadergal... */}
-      <Search onSearch={handleSearch} />
+      <Search Search={searchTerm} onSearch={handleSearch} />
 
       <hr />
       <List listname={searchedStories} />
@@ -68,22 +68,22 @@ const App = () => {
   );
 };
 
-const Search = (props) => {
+const Search = ({Search, onSearch}) => {
   
 
   return (
     <div className="search">
       <label htmlFor="search">Name</label>
-      <input type="text" id="search" onChange={props.onSearch} />
+      <input type="text" id="search" value={Search} onChange={onSearch} />
      
     </div>
   );
 };
 
-const List = (props) => {
+const List = ({listname}) => {
   return (
     <ul>
-      {props.listname.map((item) => {
+      {listname.map((item) => {
         return (
           <div className="body">
             <Item key={item.objectID} item={item} />
@@ -94,15 +94,15 @@ const List = (props) => {
   );
 };
 
-const Item = (props) => {
+const Item = ({item}) => {
   return (
     <li>
-      <h4>{props.item.title}</h4>
+      <h4>{item.title}</h4>
       <p>
-        author: {props.item.author} comments :<span>{props.item.points}</span>
+        author: {item.author} comments :<span>{item.points}</span>
       </p>
       <p>
-        tutorial link : <a href={props.item.Url}>{props.item.Url}</a>
+        tutorial link : <a href={item.Url}>{item.Url}</a>
       </p>
       <hr />
     </li>
